@@ -1,0 +1,36 @@
+.gift-card-form {
+  &__subtitle {
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__wrapper {
+    display: grid;
+    @include media(grid-template-columns, (12fr 10fr, 12fr 10fr, 1fr));
+    @include media(gap, (5rem, 3rem, 1rem));
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      @include fitImage(center, contain);
+    }
+  }
+
+  padding: 3rem 1rem;
+
+  &__input {
+    margin: 20px 0;
+    @include flex(column, flex-start, flex-start);
+
+    input {
+      width: 100%;
+      background-color: unset;
+      border: none;
+      border-bottom: 1px solid var(--main-text-color);
+      padding: 1rem 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.contact-us {
+  &__sections {
+    @include grid(1fr, auto);
+    gap: 2rem;
+
+    &__item {
+      display: grid;
+      @include media(grid-template-columns, (1fr 1fr, 1fr 1fr, 1fr));
+      gap: 1rem;
+
+      &__content {
+        @include media(order, (2, 2, 1));
+
+        &__line {
+          height: 3px;
+          background-color: var(--primary-color);
+          width: 150px;
+          margin-bottom: 1rem;
+        }
+      }
+
+      &__image {
+        order: 1;
+        width: 100%;
+        @include media(height, (420px, 320px, 220px));
+
+        img {
+          @include fitImage(center, cover);
+        }
+      }
+
+      &:nth-child(even) {
+        .contact-us__sections__item {
+          &__content {
+            order: 1;
+          }
+          &__image {
+            order: 2;
+          }
+        }
+      }
+    }
+  }
+}

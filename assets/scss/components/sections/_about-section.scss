@@ -1,0 +1,19 @@
+.about-section {
+  display: grid;
+  @include media(grid-template-columns, (1fr 1fr, 1fr 1fr, 1fr));
+  gap: 2rem;
+
+  &__image {
+    width: 100%;
+    img {
+      @include fitImage(center, contain);
+    }
+  }
+
+  &__content {
+    p {
+      line-height: 30px;
+      font-size: 20px;
+    }
+  }
+}

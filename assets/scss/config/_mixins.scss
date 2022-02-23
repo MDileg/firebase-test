@@ -1,0 +1,73 @@
+$screens: (all, 1028, 768, 416);
+
+@mixin media($property, $values) {
+  /*разбиваем введенные значения в цикле*/
+  @for $i from 1 through length($values) {
+    /*Проверяем, если значение прописано как '' тогда пропускаем его*/
+    @if nth($values, $i) != '' {
+      @if nth($screens, $i) == 'all' {
+        /*Если это первое значение, тогда значение пропишется без @media screen */
+        #{$property}: unquote(#{nth($values, $i)}) !important;
+      } @else {
+        /*иначе помещаем свойство в @media screen с соответствующим индексом*/
+        @media screen and (max-width: nth($screens, $i) + 'px') {
+          #{$property}: unquote(#{nth($values, $i)}) !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url('../fonts/#{$font_name}/#{$file_name}');
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@mixin flex($direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin grid($cols, $rows) {
+  display: grid;
+  grid-template-columns: $cols;
+  grid-template-rows: $rows;
+}
+
+@mixin fitImage($pos, $fit) {
+  object-position: $pos;
+  object-fit: $fit;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin defaultPadding {
+  padding: 0.6rem 1rem;
+}
+
+@mixin defaultShadow {
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+@mixin defaultBorder {
+  border: 1px solid var(--border-color);
+}
+
+@mixin gap($size) {
+  margin: 0 $size;
+
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

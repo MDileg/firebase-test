@@ -1,0 +1,17 @@
+.about-us {
+  &__image {
+    width: 100%;
+    @include media(height, (600px, 400px, 200px));
+    margin-bottom: 1rem;
+    img {
+      @include fitImage(center, cover);
+    }
+  }
+
+  &__content {
+    p {
+      margin-bottom: 1rem;
+      line-height: 24px;
+    }
+  }
+}

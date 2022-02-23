@@ -1,0 +1,88 @@
+.footer {
+  @include grid(1fr, auto);
+  gap: 2rem;
+  padding: 2rem 0;
+
+  &__banner {
+    height: 320px;
+    background-image: url('~/assets/images/footer-banner.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include media(padding, (3rem, 2rem, 1rem));
+
+    display: grid;
+    @include media(grid-template-columns, (1fr 1fr, 1fr 1fr, 1fr));
+    align-items: center;
+    justify-items: center;
+
+    &__title {
+      color: #fff;
+      text-transform: uppercase;
+      @include media(font-size, (30px, 25px, 20px));
+    }
+
+    &__input {
+      @include flex(row, flex-start, center);
+      input {
+        @include defaultPadding;
+        border: none;
+        background-color: #fff;
+        height: 30px;
+      }
+
+      button {
+        cursor: pointer;
+        @include defaultPadding;
+        color: #fff;
+        background-color: var(--primary-color);
+        border: none;
+        height: 30px;
+      }
+    }
+  }
+
+  &__nav {
+    @include flex(row, center, center);
+    @include media(gap, (50px, 50px, 20px));
+    @include media(flex-direction, (row, row, column));
+
+    &__item {
+      position: relative;
+
+      &::after {
+        content: '';
+        @include media(display, (block, block, none));
+        position: absolute;
+        top: 50%;
+        background-color: var(--main-text-color);
+        height: 1px;
+        width: 30px;
+        right: -40px;
+      }
+
+      &:last-child {
+        &::after {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  &__socials {
+    @include flex(row, center, center);
+    &__item {
+      @include gap(10px);
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      @include flex(row, center, center);
+      border-radius: 50%;
+      padding: 25px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+  }
+}

@@ -1,0 +1,65 @@
+/* CONFIG */
+@import './config/variables';
+@import './config/mixins';
+@import './config/fonts';
+
+/* COMPONENTS */
+@import './components/header';
+@import './components/footer';
+@import './components/catalog';
+@import './components/rating';
+@import './components/gift-card-form';
+@import './components/sections/about-section';
+@import './components/modals/article-modal';
+@import './components/sidebars/cart-sidebar';
+@import './components/mobile/mobile-menu';
+
+/* PAGES */
+@import './pages/index';
+@import './pages/perfume-oils';
+@import './pages/news';
+@import './pages/about-us';
+@import './pages/contact-us';
+@import './pages/perfume';
+@import './pages/order';
+
+/* BASE */
+@import './base/layout';
+@import './base/transitions';
+
+/* PACKAGES */
+@import 'hamburgers/dist/hamburgers.css';
+
+/* PACKAGE OVERRIDE */
+@import './packages/v-dropdown-menu';
+@import './packages/hamburger';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.1s;
+  font-family: 'PlayfairDisplay', Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--main-background-color);
+  background-image: url('~/assets/images/eiffel-bg.png');
+  background-position: center bottom;
+  background-size: 800px;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+
+li {
+  list-style: none;
+}

@@ -1,0 +1,27 @@
+.perfume-oils {
+  &__content {
+    h1,
+    p,
+    li {
+      margin-bottom: 1rem;
+    }
+
+    p,
+    li {
+      line-height: 24px;
+    }
+
+    ul {
+      padding: 0 2rem;
+      li {
+        list-style: circle;
+      }
+    }
+
+    &__images {
+      @include grid(repeat(4, 1fr), auto);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

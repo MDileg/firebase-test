@@ -1,0 +1,49 @@
+.perfume {
+  &__wrapper {
+    display: grid;
+    @include media(grid-template-columns, (1fr 1fr, 1fr 1fr, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  &__image {
+    width: 100%;
+    @include media(height, (930px, 830px, 330px));
+
+    img {
+      @include fitImage(center, contain);
+    }
+  }
+
+  &__info {
+    @include flex(column, flex-start, stretch);
+    gap: 1rem;
+
+    &__name {
+      text-transform: uppercase;
+    }
+
+    &__price {
+      font-size: 12px;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--main-text-color);
+    }
+
+    &__sizes {
+      @include grid(repeat(8, 1fr), auto);
+
+      &__item {
+        border: 1px solid var(--main-text-color);
+        padding: 10px;
+        @include flex(row, center, center);
+        border-radius: 10px;
+
+        &.is-active {
+          border: 1px solid #fff;
+          color: #fff;
+          background-color: var(--primary-color);
+        }
+      }
+    }
+  }
+}

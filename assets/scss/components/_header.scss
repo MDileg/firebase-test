@@ -1,0 +1,88 @@
+.header {
+  @include flex(row, space-between, center);
+  position: relative;
+
+  &__searchbar {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include flex(column, center, center);
+    background-color: var(--main-background-color);
+    z-index: 1;
+
+    &__input {
+      margin-top: 1rem;
+      border-bottom: 1px solid var(--main-text-color);
+
+      input {
+        width: 250px;
+        background-color: unset;
+        border: none;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  &__logo {
+    @include media(width, (150px, 100px, 80px));
+    height: auto;
+
+    img {
+      @include fitImage(center, contain);
+    }
+  }
+
+  &__nav {
+    @include flex(row, flex-start, center);
+
+    @include media(display, (flex, flex, none));
+
+    &__item {
+      @include gap(1rem);
+    }
+  }
+
+  &__panel {
+    @include flex(row, flex-start, center);
+    gap: 1rem;
+
+    &__hamburger {
+      @include media(display, (none, none, block));
+    }
+
+    &__language {
+      @include flex(row, flex-start, center);
+
+      svg.fa-caret-down {
+        margin-left: 0.4rem;
+      }
+
+      &__dropdown {
+        .v-dropdown-menu__container {
+          right: 0 !important;
+        }
+      }
+
+      &__button {
+        cursor: pointer;
+        @include flex(row, flex-start, center);
+      }
+
+      &__image {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+
+        img {
+          @include fitImage(center, contain);
+        }
+      }
+    }
+  }
+
+  &__hamburger {
+    @include media(display, (none, none, block));
+  }
+}
